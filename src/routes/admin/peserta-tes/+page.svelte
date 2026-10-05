@@ -157,10 +157,10 @@
 			<a href="/admin/kategori-soal" class="nav-item">
 				<i class="fa-solid fa-table-cells-large"></i><span>Kategori Soal</span>
 			</a>
-			<a href="/admin/dashboard" class="nav-item">
+			<a href="/admin/bank-soal" class="nav-item">
 				<i class="fa-solid fa-book-open"></i><span>Bank Soal</span>
 			</a>
-			<a href="/admin/dashboard" class="nav-item">
+			<a href="/admin/passage" class="nav-item">
 				<i class="fa-solid fa-file-lines"></i><span>Passage/Teks</span>
 			</a>
 			<a href="/admin/dashboard" class="nav-item">
