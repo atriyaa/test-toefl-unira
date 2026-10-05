@@ -1,0 +1,1049 @@
+<svelte:head>
+	<title>SRMS - Student Result Management System</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+		rel="stylesheet"
+	/>
+	<link
+		rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+	/>
+</svelte:head>
+
+<div class="page">
+	<!-- ================= SIDEBAR ================= -->
+	<aside class="sidebar">
+		<div class="sidebar-header">
+			<i class="fa-solid fa-mosque"></i>
+			<h2>P2BA UNIA</h2>
+			<p>Pusat Bahasa & Tes Akademik</p>
+		</div>
+
+		<nav class="sidebar-menu">
+			<a href="/admin/dashboard" class="nav-item active">
+				<i class="fa-solid fa-chart-pie"></i>
+				<span>Dashboard</span>
+			</a>
+
+			<p class="menu-label">OPERASIONAL</p>
+			<a href="/admin/peserta-tes" class="nav-item">
+				<i class="fa-solid fa-user-group"></i>
+				<span>Peserta Tes</span>
+			</a>
+			<a href="/admin/jadwal-ujian" class="nav-item">
+				<i class="fa-regular fa-calendar-days"></i>
+				<span>Jadwal Ujian</span>
+			</a>
+			<a href="/admin/kategori-soal" class="nav-item">
+				<i class="fa-solid fa-table-cells-large"></i>
+				<span>Kategori Soal</span>
+			</a>
+			<a href="/admin/dashboard" class="nav-item">
+				<i class="fa-solid fa-book-open"></i>
+				<span>Bank Soal</span>
+			</a>
+			<a href="/admin/dashboard" class="nav-item">
+				<i class="fa-solid fa-file-lines"></i>
+				<span>Passage/Teks</span>
+			</a>
+			<a href="/admin/dashboard" class="nav-item">
+				<i class="fa-solid fa-square-poll-vertical"></i>
+				<span>Hasil & Skor</span>
+			</a>
+			<a href="/admin/dashboard" class="nav-item">
+				<i class="fa-solid fa-certificate"></i>
+				<span>Sertifikat</span>
+			</a>
+
+			<p class="menu-label">KEUANGAN</p>
+			<a href="/admin/peserta-tes" class="nav-item">
+				<i class="fa-solid fa-users"></i>
+				<span>Peserta Tes</span>
+			</a>
+			<a href="/admin/dashboard" class="nav-item">
+				<i class="fa-solid fa-wallet"></i>
+				<span>Verifikasi Bayar</span>
+			</a>
+			<a href="/admin/dashboard" class="nav-item">
+				<i class="fa-solid fa-file-invoice"></i>
+				<span>Laporan</span>
+			</a>
+
+			<p class="menu-label">SISTEM</p>
+			<a href="/admin/dashboard" class="nav-item">
+				<i class="fa-solid fa-user-gear"></i>
+				<span>Admin Users</span>
+			</a>
+			<a href="/admin/dashboard" class="nav-item">
+				<i class="fa-solid fa-gear"></i>
+				<span>Pengaturan</span>
+			</a>
+		</nav>
+
+		<div class="sidebar-footer">
+			<div class="sidebar-user">
+				<div class="sidebar-avatar">S</div>
+				<div class="sidebar-user-info">
+					<h4>Super Admin</h4>
+					<p>Super admin</p>
+				</div>
+			</div>
+			<a href="/login" class="logout-btn">
+				<i class="fa-solid fa-arrow-right-from-bracket"></i>
+				<span>Logout</span>
+			</a>
+		</div>
+	</aside>
+
+	<!-- ================= MAIN CONTENT ================= -->
+	<main class="main-content">
+		<!-- TOP HEADER -->
+		<header class="top-header">
+			<div class="header-left">
+				<i class="fa-solid fa-bars" style="cursor: pointer; color: var(--text-muted)"></i>
+				<h1>Dashboard</h1>
+			</div>
+
+			<div class="search-box">
+				<i class="fa-solid fa-magnifying-glass"></i>
+				<input type="text" placeholder="Search anything..." />
+			</div>
+
+			<div class="header-right">
+				<button class="notification-btn" aria-label="Notifications">
+					<i class="fa-regular fa-bell"></i>
+					<span class="notification-badge">3</span>
+				</button>
+
+				<div class="user-profile">
+					<img src="https://i.pravatar.cc/100?img=12" alt="User Profile" class="user-avatar" />
+					<div class="user-info">
+						<h4>Hello, Abhishek Verma</h4>
+						<p>B.Tech CSE - 3rd Year</p>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<!-- DASHBOARD CONTAINER -->
+		<div class="dashboard-container">
+			<!-- WELCOME BANNER -->
+			<section class="welcome-banner">
+				<div class="welcome-text">
+					<h2>Good Morning, 👋<br />Abhishek Verma!</h2>
+					<p>Stay updated with your academic journey.</p>
+				</div>
+				<div class="welcome-illustration">
+					<i class="fa-solid fa-book-bookmark"></i>
+				</div>
+			</section>
+
+			<!-- STATS GRID -->
+			<section class="stats-grid">
+				<div class="stat-card">
+					<div class="stat-icon blue">
+						<i class="fa-solid fa-file-lines"></i>
+					</div>
+					<div class="stat-info">
+						<span>CGPA</span>
+						<h3>8.45</h3>
+						<small class="blue">Current CGPA</small>
+					</div>
+				</div>
+
+				<div class="stat-card">
+					<div class="stat-icon green">
+						<i class="fa-solid fa-graduation-cap"></i>
+					</div>
+					<div class="stat-info">
+						<span>Courses Enrolled</span>
+						<h3>6</h3>
+						<small class="green">This Semester</small>
+					</div>
+				</div>
+
+				<div class="stat-card">
+					<div class="stat-icon purple">
+						<i class="fa-solid fa-clipboard-check"></i>
+					</div>
+					<div class="stat-info">
+						<span>Exams Completed</span>
+						<h3>4</h3>
+						<small class="purple">This Semester</small>
+					</div>
+				</div>
+
+				<div class="stat-card">
+					<div class="stat-icon yellow">
+						<i class="fa-solid fa-trophy"></i>
+					</div>
+					<div class="stat-info">
+						<span>Overall Rank</span>
+						<h3>12</h3>
+						<small class="yellow">Out of 120</small>
+					</div>
+				</div>
+
+				<div class="stat-card">
+					<div class="stat-icon pink">
+						<i class="fa-regular fa-calendar-check"></i>
+					</div>
+					<div class="stat-info">
+						<span>Attendance</span>
+						<h3>87%</h3>
+						<small class="pink">This Semester</small>
+					</div>
+				</div>
+			</section>
+
+			<!-- MIDDLE CONTENT GRID (TABLE & NOTICE) -->
+			<section class="content-grid-2col">
+				<!-- Recent Results -->
+				<div class="card">
+					<div class="card-header">
+						<h3>Recent Results</h3>
+						<a href="/admin/dashboard">View All Results</a>
+					</div>
+					<div class="table-responsive">
+						<table>
+							<thead>
+								<tr>
+									<th>Subject</th>
+									<th>Exam Type</th>
+									<th>Grade</th>
+									<th>Score</th>
+									<th>Date</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Data Structures</td>
+									<td>Mid Sem</td>
+									<td><span class="badge-grade grade-a">A</span></td>
+									<td>86/100</td>
+									<td>12 May 2024</td>
+								</tr>
+								<tr>
+									<td>Database Management Systems</td>
+									<td>Mid Sem</td>
+									<td><span class="badge-grade grade-a-minus">A-</span></td>
+									<td>91/100</td>
+									<td>10 May 2024</td>
+								</tr>
+								<tr>
+									<td>Operating Systems</td>
+									<td>Mid Sem</td>
+									<td><span class="badge-grade grade-b">B+</span></td>
+									<td>79/100</td>
+									<td>08 May 2024</td>
+								</tr>
+								<tr>
+									<td>Computer Networks</td>
+									<td>Mid Sem</td>
+									<td><span class="badge-grade grade-a">A</span></td>
+									<td>85/100</td>
+									<td>06 May 2024</td>
+								</tr>
+								<tr>
+									<td>Software Engineering</td>
+									<td>Mid Sem</td>
+									<td><span class="badge-grade grade-a-minus">A-</span></td>
+									<td>90/100</td>
+									<td>04 May 2024</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<!-- Notice Board -->
+				<div class="card">
+					<div class="card-header">
+						<h3>Notice Board</h3>
+						<a href="/admin/dashboard">View All Notices</a>
+					</div>
+					<div class="notice-list">
+						<div class="notice-item">
+							<i class="fa-solid fa-bullhorn notice-icon"></i>
+							<div class="notice-content">
+								<h4>End Semester Exam Schedule</h4>
+								<p>The end semester exams will begin from 25th May 2024.</p>
+								<span>15 May 2024</span>
+							</div>
+						</div>
+
+						<div class="notice-item">
+							<i class="fa-solid fa-bullhorn notice-icon"></i>
+							<div class="notice-content">
+								<h4>Result Declaration Notice</h4>
+								<p>Results for Mid Semester Exams has been declared.</p>
+								<span>12 May 2024</span>
+							</div>
+						</div>
+
+						<div class="notice-item">
+							<i class="fa-solid fa-bullhorn notice-icon"></i>
+							<div class="notice-content">
+								<h4>Project Submission Deadline</h4>
+								<p>Final year project submission is due on 30th May 2024.</p>
+								<span>10 May 2024</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- BOTTOM CONTENT GRID (CALENDAR, QUICK ACCESS, PERFORMANCE) -->
+			<section class="content-grid-3col">
+				<!-- Academic Calendar -->
+				<div class="card">
+					<div class="card-header">
+						<h3>Academic Calendar</h3>
+						<a href="/admin/dashboard">View Calendar</a>
+					</div>
+					<div style="text-align: center; font-weight: 600; font-size: 13px; margin-bottom: 8px">
+						May 2024
+					</div>
+					<div class="calendar-grid">
+						<div class="calendar-day-head">Mon</div>
+						<div class="calendar-day-head">Tue</div>
+						<div class="calendar-day-head">Wed</div>
+						<div class="calendar-day-head">Thu</div>
+						<div class="calendar-day-head">Fri</div>
+						<div class="calendar-day-head">Sat</div>
+						<div class="calendar-day-head Sunday">Sun</div>
+
+						<div class="calendar-day" style="color: #ccc">29</div>
+						<div class="calendar-day" style="color: #ccc">30</div>
+						<div class="calendar-day">1</div>
+						<div class="calendar-day">2</div>
+						<div class="calendar-day">3</div>
+						<div class="calendar-day">4</div>
+						<div class="calendar-day sunday">5</div>
+
+						<div class="calendar-day">6</div>
+						<div class="calendar-day">7</div>
+						<div class="calendar-day">8</div>
+						<div class="calendar-day">9</div>
+						<div class="calendar-day">10</div>
+						<div class="calendar-day">11</div>
+						<div class="calendar-day sunday">12</div>
+
+						<div class="calendar-day">13</div>
+						<div class="calendar-day">14</div>
+						<div class="calendar-day">15</div>
+						<div class="calendar-day">16</div>
+						<div class="calendar-day">17</div>
+						<div class="calendar-day">18</div>
+						<div class="calendar-day sunday">19</div>
+
+						<div class="calendar-day active">20</div>
+						<div class="calendar-day">21</div>
+						<div class="calendar-day">22</div>
+						<div class="calendar-day">23</div>
+						<div class="calendar-day">24</div>
+						<div class="calendar-day">25</div>
+						<div class="calendar-day sunday">26</div>
+
+						<div class="calendar-day">27</div>
+						<div class="calendar-day">28</div>
+						<div class="calendar-day">29</div>
+						<div class="calendar-day">30</div>
+						<div class="calendar-day">31</div>
+						<div class="calendar-day" style="color: #ccc">1</div>
+						<div class="calendar-day sunday" style="color: #ccc">2</div>
+					</div>
+				</div>
+
+				<!-- Quick Access -->
+				<div class="card">
+					<div class="card-header">
+						<h3>Quick Access</h3>
+					</div>
+					<div class="quick-access-grid">
+						<a href="/admin/dashboard" class="quick-btn">
+							<i class="fa-solid fa-file-invoice"></i>
+							<span>My Results</span>
+						</a>
+						<a href="/admin/dashboard" class="quick-btn">
+							<i class="fa-solid fa-book"></i>
+							<span>My Courses</span>
+						</a>
+						<a href="/admin/dashboard" class="quick-btn">
+							<i class="fa-solid fa-calendar-days"></i>
+							<span>Timetable</span>
+						</a>
+						<a href="/admin/dashboard" class="quick-btn">
+							<i class="fa-solid fa-user-check"></i>
+							<span>Attendance</span>
+						</a>
+						<a href="/admin/dashboard" class="quick-btn">
+							<i class="fa-solid fa-circle-down"></i>
+							<span>Downloads</span>
+						</a>
+						<a href="/admin/dashboard" class="quick-btn">
+							<i class="fa-solid fa-comment-dots"></i>
+							<span>Feedback</span>
+						</a>
+					</div>
+				</div>
+
+				<!-- Performance Overview -->
+				<div class="card">
+					<div class="card-header">
+						<h3>Performance Overview</h3>
+						<a href="/admin/dashboard">View Details</a>
+					</div>
+					<div class="chart-container">
+						<div class="donut-chart">
+							<div class="donut-center">
+								<h4>84%</h4>
+								<p>Overall<br />Performance</p>
+							</div>
+						</div>
+
+						<div class="chart-legend">
+							<div class="legend-item">
+								<span><span class="legend-color" style="background: #22c55e"></span>Excellent</span>
+								<strong>60%</strong>
+							</div>
+							<div class="legend-item">
+								<span><span class="legend-color" style="background: #3b82f6"></span>Good</span>
+								<strong>22%</strong>
+							</div>
+							<div class="legend-item">
+								<span><span class="legend-color" style="background: #eab308"></span>Average</span>
+								<strong>12%</strong>
+							</div>
+							<div class="legend-item">
+								<span><span class="legend-color" style="background: #ef4444"></span>Needs Imp.</span>
+								<strong>6%</strong>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<!-- FOOTER -->
+		<footer>
+			<span>&copy; 2024 Student Result Management System. All rights reserved.</span>
+			<span>Made with ❤️ For Students</span>
+		</footer>
+	</main>
+</div>
+
+<style>
+	:root {
+		--bg-main: #f4f7fe;
+		--bg-card: #ffffff;
+		--primary: #3b82f6;
+		--primary-light: #eff6ff;
+		--primary-gradient: linear-gradient(135deg, #2563eb, #3b82f6);
+		--text-dark: #1e293b;
+		--text-muted: #64748b;
+		--border-color: #f1f5f9;
+		--shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.03), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+		--shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+		--radius: 14px;
+	}
+	:global(*) {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+		font-family: 'Plus Jakarta Sans', sans-serif;
+	}
+	:global(body) {
+		background-color: var(--bg-main);
+	}
+	.page {
+		background-color: var(--bg-main);
+		color: var(--text-dark);
+		display: flex;
+		min-height: 100vh;
+	}
+	a {
+		text-decoration: none;
+		color: inherit;
+	}
+	.sidebar {
+		width: 250px;
+		background: var(--bg-card);
+		display: flex;
+		flex-direction: column;
+		border-right: 1px solid #e2e8f0;
+		flex-shrink: 0;
+		position: sticky;
+		top: 0;
+		height: 100vh;
+		height: 100dvh;
+	}
+	.sidebar-header {
+		background: var(--primary-gradient);
+		color: white;
+		padding: 24px 20px;
+		text-align: center;
+		border-bottom-right-radius: 20px;
+		flex-shrink: 0;
+	}
+	.sidebar-header i {
+		font-size: 32px;
+		margin-bottom: 8px;
+	}
+	.sidebar-header h2 {
+		font-size: 18px;
+		font-weight: 700;
+		letter-spacing: 1px;
+	}
+	.sidebar-header p {
+		font-size: 11px;
+		opacity: 0.8;
+		margin-top: 4px;
+	}
+	.sidebar-menu {
+		padding: 20px 12px;
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+		overflow-y: auto;
+		overflow-x: hidden;
+		min-height: 0;
+		scrollbar-width: thin;
+		scrollbar-color: #cbd5e1 transparent;
+	}
+	.sidebar-menu::-webkit-scrollbar {
+		width: 6px;
+	}
+	.sidebar-menu::-webkit-scrollbar-track {
+		background: transparent;
+	}
+	.sidebar-menu::-webkit-scrollbar-thumb {
+		background: #cbd5e1;
+		border-radius: 99px;
+	}
+	.sidebar-menu::-webkit-scrollbar-thumb:hover {
+		background: var(--primary);
+	}
+	.menu-label {
+		font-size: 10px;
+		font-weight: 700;
+		letter-spacing: 1px;
+		color: var(--text-muted);
+		opacity: 0.8;
+		margin: 12px 16px 4px;
+	}
+	.nav-item {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		padding: 12px 16px;
+		border-radius: 10px;
+		color: var(--text-muted);
+		font-size: 14px;
+		font-weight: 500;
+		transition: all 0.2s ease;
+	}
+	.nav-item:hover {
+		background: #f8fafc;
+		color: var(--primary);
+	}
+	.nav-item.active {
+		background: var(--primary);
+		color: white;
+		box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+	}
+	.sidebar-footer {
+		padding: 16px 12px;
+		border-top: 1px solid var(--border-color);
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		flex-shrink: 0;
+		background: var(--bg-card);
+	}
+	.sidebar-user {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		padding: 10px 12px;
+		background: #f8fafc;
+		border-radius: 10px;
+	}
+	.sidebar-avatar {
+		width: 32px;
+		height: 32px;
+		border-radius: 50%;
+		background: var(--primary);
+		color: #fff;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-weight: 700;
+		font-size: 14px;
+		flex-shrink: 0;
+	}
+	.sidebar-user-info h4 {
+		font-size: 13px;
+		font-weight: 700;
+	}
+	.sidebar-user-info p {
+		font-size: 11px;
+		color: var(--text-muted);
+	}
+	.logout-btn {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		padding: 12px 16px;
+		color: #ef4444;
+		font-weight: 600;
+		font-size: 14px;
+		border-radius: 10px;
+	}
+	.logout-btn:hover {
+		background: #fef2f2;
+	}
+	.main-content {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		overflow-x: hidden;
+	}
+	.top-header {
+		background: var(--bg-card);
+		padding: 16px 32px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		border-bottom: 1px solid #e2e8f0;
+	}
+	.header-left {
+		display: flex;
+		align-items: center;
+		gap: 16px;
+	}
+	.header-left h1 {
+		font-size: 20px;
+		font-weight: 700;
+	}
+	.search-box {
+		position: relative;
+		width: 280px;
+	}
+	.search-box input {
+		width: 100%;
+		padding: 8px 16px 8px 36px;
+		border-radius: 20px;
+		border: 1px solid #e2e8f0;
+		background: #f8fafc;
+		font-size: 13px;
+		outline: none;
+	}
+	.search-box i {
+		position: absolute;
+		left: 12px;
+		top: 50%;
+		transform: translateY(-50%);
+		color: var(--text-muted);
+		font-size: 13px;
+	}
+	.header-right {
+		display: flex;
+		align-items: center;
+		gap: 20px;
+	}
+	.notification-btn {
+		position: relative;
+		background: #f1f5f9;
+		border: none;
+		width: 36px;
+		height: 36px;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		color: var(--text-dark);
+	}
+	.notification-badge {
+		position: absolute;
+		top: -2px;
+		right: -2px;
+		background: #ef4444;
+		color: white;
+		font-size: 10px;
+		width: 16px;
+		height: 16px;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border: 2px solid white;
+	}
+	.user-profile {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+	}
+	.user-avatar {
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		object-fit: cover;
+	}
+	.user-info h4 {
+		font-size: 14px;
+		font-weight: 600;
+	}
+	.user-info p {
+		font-size: 12px;
+		color: var(--text-muted);
+	}
+	.dashboard-container {
+		padding: 24px 32px;
+		display: flex;
+		flex-direction: column;
+		gap: 24px;
+	}
+	.welcome-banner {
+		background: linear-gradient(135deg, #e0f2fe, #eff6ff);
+		border-radius: var(--radius);
+		padding: 24px 32px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		box-shadow: var(--shadow-sm);
+	}
+	.welcome-text h2 {
+		font-size: 24px;
+		font-weight: 700;
+		color: var(--text-dark);
+		margin-bottom: 6px;
+	}
+	.welcome-text p {
+		color: var(--text-muted);
+		font-size: 14px;
+	}
+	.welcome-illustration {
+		font-size: 48px;
+		color: var(--primary);
+	}
+	.stats-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+		gap: 16px;
+	}
+	.stat-card {
+		background: var(--bg-card);
+		padding: 20px;
+		border-radius: var(--radius);
+		box-shadow: var(--shadow-sm);
+		display: flex;
+		align-items: center;
+		gap: 16px;
+	}
+	.stat-icon {
+		width: 48px;
+		height: 48px;
+		border-radius: 12px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 20px;
+	}
+	.stat-icon.blue {
+		background: #dbeafe;
+		color: #2563eb;
+	}
+	.stat-icon.green {
+		background: #dcfce7;
+		color: #16a34a;
+	}
+	.stat-icon.purple {
+		background: #f3e8ff;
+		color: #9333ea;
+	}
+	.stat-icon.yellow {
+		background: #fef9c3;
+		color: #ca8a04;
+	}
+	.stat-icon.pink {
+		background: #ffe4e6;
+		color: #e11d48;
+	}
+	.stat-info span {
+		font-size: 12px;
+		color: var(--text-muted);
+		display: block;
+	}
+	.stat-info h3 {
+		font-size: 20px;
+		font-weight: 700;
+		margin: 2px 0;
+	}
+	.stat-info small {
+		font-size: 11px;
+		font-weight: 600;
+	}
+	.stat-info small.blue {
+		color: #2563eb;
+	}
+	.stat-info small.green {
+		color: #16a34a;
+	}
+	.stat-info small.purple {
+		color: #9333ea;
+	}
+	.stat-info small.yellow {
+		color: #ca8a04;
+	}
+	.stat-info small.pink {
+		color: #e11d48;
+	}
+	.content-grid-2col {
+		display: grid;
+		grid-template-columns: 2fr 1fr;
+		gap: 20px;
+	}
+	.card {
+		background: var(--bg-card);
+		border-radius: var(--radius);
+		padding: 20px;
+		box-shadow: var(--shadow-sm);
+	}
+	.card-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 16px;
+	}
+	.card-header h3 {
+		font-size: 16px;
+		font-weight: 700;
+	}
+	.card-header a {
+		font-size: 12px;
+		color: var(--primary);
+		font-weight: 600;
+	}
+	.table-responsive {
+		overflow-x: auto;
+	}
+	table {
+		width: 100%;
+		border-collapse: collapse;
+		font-size: 13px;
+	}
+	th {
+		text-align: left;
+		padding: 10px 12px;
+		color: var(--text-muted);
+		font-weight: 600;
+		background: #f8fafc;
+		border-bottom: 1px solid var(--border-color);
+	}
+	td {
+		padding: 12px;
+		border-bottom: 1px solid var(--border-color);
+	}
+	.badge-grade {
+		display: inline-block;
+		padding: 4px 8px;
+		border-radius: 6px;
+		font-weight: 700;
+		font-size: 11px;
+	}
+	.grade-a {
+		background: #dcfce7;
+		color: #15803d;
+	}
+	.grade-a-minus {
+		background: #dcfce7;
+		color: #166534;
+	}
+	.grade-b {
+		background: #dbeafe;
+		color: #1d4ed8;
+	}
+	.notice-list {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+	}
+	.notice-item {
+		display: flex;
+		gap: 12px;
+		padding: 12px;
+		background: #f8fafc;
+		border-radius: 10px;
+		border-left: 4px solid var(--primary);
+	}
+	.notice-icon {
+		color: var(--primary);
+		font-size: 18px;
+	}
+	.notice-content h4 {
+		font-size: 13px;
+		font-weight: 600;
+		margin-bottom: 4px;
+	}
+	.notice-content p {
+		font-size: 12px;
+		color: var(--text-muted);
+		margin-bottom: 4px;
+	}
+	.notice-content span {
+		font-size: 10px;
+		color: var(--primary);
+		font-weight: 600;
+	}
+	.content-grid-3col {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 20px;
+	}
+	.calendar-grid {
+		display: grid;
+		grid-template-columns: repeat(7, 1fr);
+		gap: 6px;
+		text-align: center;
+		font-size: 12px;
+		margin-top: 10px;
+	}
+	.calendar-day-head {
+		font-weight: 600;
+		color: var(--text-muted);
+		padding-bottom: 4px;
+	}
+	.calendar-day {
+		padding: 6px 0;
+		border-radius: 6px;
+	}
+	.calendar-day.active {
+		background: var(--primary);
+		color: white;
+		font-weight: 600;
+	}
+	.calendar-day.sunday {
+		color: #ef4444;
+	}
+	.quick-access-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 12px;
+	}
+	.quick-btn {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding: 16px 8px;
+		background: #f8fafc;
+		border-radius: 12px;
+		gap: 8px;
+		transition: all 0.2s;
+	}
+	.quick-btn:hover {
+		background: var(--primary-light);
+		transform: translateY(-2px);
+	}
+	.quick-btn i {
+		font-size: 20px;
+		color: var(--primary);
+	}
+	.quick-btn span {
+		font-size: 11px;
+		font-weight: 600;
+	}
+	.chart-container {
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		padding: 10px 0;
+	}
+	.donut-chart {
+		width: 100px;
+		height: 100px;
+		border-radius: 50%;
+		background: conic-gradient(#22c55e 0% 60%, #3b82f6 60% 82%, #eab308 82% 94%, #ef4444 94% 100%);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+	}
+	.donut-chart::before {
+		content: '';
+		width: 70px;
+		height: 70px;
+		background: white;
+		border-radius: 50%;
+		position: absolute;
+	}
+	.donut-center {
+		position: relative;
+		text-align: center;
+	}
+	.donut-center h4 {
+		font-size: 16px;
+		font-weight: 700;
+	}
+	.donut-center p {
+		font-size: 9px;
+		color: var(--text-muted);
+	}
+	.chart-legend {
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+		font-size: 11px;
+	}
+	.legend-item {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 12px;
+	}
+	.legend-color {
+		width: 8px;
+		height: 8px;
+		border-radius: 50%;
+		display: inline-block;
+		margin-right: 6px;
+	}
+	footer {
+		padding: 16px 32px;
+		display: flex;
+		justify-content: space-between;
+		font-size: 12px;
+		color: var(--text-muted);
+		border-top: 1px solid #e2e8f0;
+		margin-top: auto;
+	}
+	@media (max-width: 1024px) {
+		.content-grid-2col {
+			grid-template-columns: 1fr;
+		}
+		.content-grid-3col {
+			grid-template-columns: 1fr;
+		}
+	}
+	@media (max-width: 768px) {
+		.page {
+			flex-direction: column;
+		}
+		.sidebar {
+			width: 100%;
+			position: static;
+			height: auto;
+		}
+		.sidebar-menu {
+			overflow-y: visible;
+		}
+		.search-box {
+			display: none;
+		}
+	}
+</style>
